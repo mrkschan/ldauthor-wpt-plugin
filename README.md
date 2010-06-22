@@ -12,7 +12,7 @@ Build
 
 First, you need a source copy of ReCourse editor. Do,
 	cvs -d:pserver:anonymous@tencompetence.cvs.sourceforge.net:/cvsroot/tencompetence login 
-	cvs -z3 -d:pserver:anonymous@tencompetence.cvs.sourceforge.net:/cvsroot/tencompetence export org.tencompetence.jdom wp6/org.eclipse.epf.richtext wp6/org.tencompetence.imsldmodel wp6/org.tencompetence.ldauthor wp6/org.tencompetence.ldauthor.fedora wp6/org.tencompetence.ldauthor.opendock wp6/org.tencompetence.ldpublisher wp6/org.tencompetence.ldvisualiser wp6/org.tencompetence.qtieditor wp6/org.tencompetence.widgetadvert
+	cvs -z3 -d:pserver:anonymous@tencompetence.cvs.sourceforge.net:/cvsroot/tencompetence export -DNOW org.tencompetence.jdom wp6/org.eclipse.epf.richtext wp6/org.tencompetence.imsldmodel wp6/org.tencompetence.ldauthor wp6/org.tencompetence.ldauthor.fedora wp6/org.tencompetence.ldauthor.opendock wp6/org.tencompetence.ldpublisher wp6/org.tencompetence.ldvisualiser wp6/org.tencompetence.qtieditor wp6/org.tencompetence.widgetadvert
 
 Second, you need Eclipse 3.5.x and its plug-in: GEF 3.5.x, Zest 1.2.x
 
