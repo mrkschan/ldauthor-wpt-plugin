@@ -1,0 +1,1775 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.cc.uah.es/ie/ont/imsLd#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.cc.uah.es/ie/ont/imsLd">
+  
+  <!--
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="file:/c:/UOL1.0.owl"/>
+  </owl:Ontology>
+  -->
+  
+  
+  
+  
+  <owl:Class rdf:ID="Organization"/>
+  <owl:Class rdf:ID="Activity-Description-Resource">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Information-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Prerequisite-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Learning-Object-Resource"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resource"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Feedback-Description-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Learning-Objective-Resource"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Learning-Objective-Resource">
+<!--  
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="condition"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+-->    
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resource"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Prerequisite-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Feedback-Description-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Information-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Activity-Description-Resource"/>
+<!--    
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="action-word"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+-->    
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Learning-Object-Resource"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Resource">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="identifier"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="href"/>
+<!--          <owl:FunctionalProperty rdf:about="#href"/> -->
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="type"/>
+<!--          <owl:DatatypeProperty rdf:about="#type"/> -->
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Unit-of-Learning">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="resource-ref"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Prerequisite-Resource">
+    <rdfs:subClassOf rdf:resource="#Resource"/>
+    <owl:disjointWith rdf:resource="#Learning-Objective-Resource"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Information-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Feedback-Description-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Activity-Description-Resource"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Learning-Object-Resource"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Information-Resource">
+    <owl:disjointWith rdf:resource="#Activity-Description-Resource"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Feedback-Description-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Prerequisite-Resource"/>
+    <owl:disjointWith rdf:resource="#Learning-Objective-Resource"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Learning-Object-Resource"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Resource"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Metadata">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="schemaversion"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="schema"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Learning-Object-Resource">
+    <rdfs:subClassOf rdf:resource="#Resource"/>
+    <owl:disjointWith rdf:resource="#Information-Resource"/>
+    <owl:disjointWith rdf:resource="#Prerequisite-Resource"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Feedback-Description-Resource"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Learning-Objective-Resource"/>
+    <owl:disjointWith rdf:resource="#Activity-Description-Resource"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Feedback-Description-Resource">
+    <owl:disjointWith rdf:resource="#Activity-Description-Resource"/>
+    <owl:disjointWith rdf:resource="#Learning-Objective-Resource"/>
+    <owl:disjointWith rdf:resource="#Prerequisite-Resource"/>
+    <owl:disjointWith rdf:resource="#Learning-Object-Resource"/>
+    <owl:disjointWith rdf:resource="#Information-Resource"/>
+    <rdfs:subClassOf rdf:resource="#Resource"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="metadata-description">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is where Meta-data is inserted using an appropriate information model.</rdfs:comment>
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/lom.owl#LOM"/> -->
+    <rdfs:domain rdf:resource="#Metadata"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="metadata-ref">
+    <rdfs:range rdf:resource="#Metadata"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Resource"/>
+          <owl:Class rdf:about="#Unit-of-Learning"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Meta-data describing this resource.
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#resource-ref">
+    <rdfs:range rdf:resource="#Resource"/>
+    <rdfs:domain rdf:resource="#Unit-of-Learning"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#schema">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes the schema that defines and controls the Manifest.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Metadata"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#identifier">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Resource"/>
+          <owl:Class rdf:about="#Unit-of-Learning"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An identifier, of the resource, that is unique within the scope of its containing manifest file.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#ID"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#condition">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Learning-Objective-Resource"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#type">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >webcontent</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >imsldcontent</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Resource"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#schemaversion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes the version of the above schema (e.g., 1,0, 1.1).</rdfs:comment>
+    <rdfs:domain rdf:resource="#Metadata"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="criterion">
+    <rdfs:domain rdf:resource="#Learning-Objective-Resource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:about="#href">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain rdf:resource="#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A reference to a URL.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#action-word">
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/lom.owl#Taxonpath"/> -->
+    <rdfs:domain rdf:resource="#Learning-Objective-Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  
+  
+  
+  
+  
+  
+  
+  
+  <owl:Class rdf:ID="Staff">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Staff members can be 'nested', meaning that a role may be divided in sub roles. E.g. in an educational institute you may distinguish roles like tutors, assessors, mentors, evaluators, etc. </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Role"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Learner"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Service">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+<!--          <owl:FunctionalProperty rdf:ID="identifier"/> -->
+          <owl:FunctionalProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A service is a declaration of a service facility which has to be bound during instantiation of a run of a unit of learning. To automate the set up process of a service facility from a service declaration, the runtime data from the instantiated learning design would be translated into a configuration format used by the conference system if the conference is to be automatically set up. This is an implementation issue. It is also possible that a system manager could read this information and set up the required conference space manually, but the intent is to alleviate the manager of this task by enabling it to be automated. The service specification is extensible by namespacing in additional services. When instantiating a service, the runtime systems needs to maintain a handle on the 'context' to which the service is to be bound and determine the users to whom the service is being made available. A service will be referenced by an item element's identifierref attribute. The item will be within an environment. The environment in turn will be associated with an activity, or possibly directly with a role-part, associating it with a role. The activity or role-part forms the context for the use of the service. The users playing the role are those that have access to the service.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Prerequisite">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Prerequisites are the entry-requirements for students, e.g. the pre-knowledge needed. For the item formats see the description of the element 'learning-objectives'.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Item"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Activity-Description"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Learning-Objective"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Information"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Feedback-Description"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="On-Completion-Unit"/>
+  <owl:Class rdf:ID="Environment">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Contains a sequence of elements to model an environment. IMS Simple Sequencing elements can be namespaced into the environment, to support the further sequencing of the environment elements. When there is no sequencing information provided, all elements that are specified in the environment will be shown to the user in the order and hierarchy provided, given that there are no further conditions defined that influences the visibility of the environment or the elements it contains. </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Play">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="act-ref"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+<!--          <owl:FunctionalProperty rdf:ID="metadata-ref"/> -->
+          <owl:FunctionalProperty rdf:about="#metadata-ref"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The play is the root element when interpreting the learning design. It represents the flow of activities during the learning process (the 'workflow' or better: the 'learningflow'). A play consists of a series of acts and an act consists of a series of role-parts. There is always at least one play in every learning design (and every unit-of-learning). In runtime the play is interpreted to show and hide activities, (other)units-of-learning, environments and resources to the users. When there is more than one play, these are interpreted concurrently and independent of each other. The same user can see the results of more than one play in the user-interface. Practical experience has shown that a lot of designs use multiple plays, to represent the flows of activities per role, e.g. a play for the learners and a play for staff. However this can only be done when the activities are independent of each other.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Feedback-Description">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The underlying item elements point to a resource (of type webcontent or imsldcontent), where the feedback description can be found. After completion this text becomes visible.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Information"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Activity-Description"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Learning-Objective"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Prerequisite"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Item"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Complete-Act">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Complete-Play"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Complete-Method"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Complete-Activity"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Complete-Unit"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="when-role-part-completed"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+<!--  
+  <owl:Class rdf:ID="Metadata">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="schema"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="schemaversion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+-->  
+  <owl:Class rdf:about="#Item">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#metadata-ref"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A node in a structure, referring to a resource.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Role">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This element specifies the roles distinguished in the learning design. Roles contains a sequence that declares the two general roles: learner &amp; staff. A href may be provided when referring to a global role (e.g. a role defined by an institute). This is obligatory when specifying a global role and connected globrole-properties. Global roles are specified with the href attribute. The rest of the declaration, like information, is local. It is not possible to declare global roles in a learning design. This is just an organizational issue and is nothing more or less than providing absolute URIs for roles. The URI doesn't necessarily point to a resource on the location of the address, its just used as a worldwide unique identifier. The attribute 'identifier' on roles can be used to refer to the whole group of all roles within the learning-design (learners and staff). In every learning-design at least one learner role is specified. In institutional installations the role names are fixed. For instance in most universities, the role-identifier for learners is: 'student'.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Activity-Description">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alias: task. The activity-description is the actual cue given to the user (rendered in the user-interface) to describe the activity to be performed by the user. In most cases the activity-description is text (of type webcontent or imsldcontent). In other cases it can be an audio-file (webcontent), a video file or any other cue to the user. Activity-descriptions also define the environment for the activity. Every noun mentioned in the description refers to a resource in the environment. It is up to the author to have a strict representation of the nouns in the environment or a more open one (leaving nouns implicit).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Item"/>
+    <owl:disjointWith rdf:resource="#Prerequisite"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Information"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Learning-Objective"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Feedback-Description"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Method">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The method contains a sequence of elements for the definition of the dynamics of the learning process. It consists of one or more play(s) (which could be interpreted as the runscript for the unit of learning) and a statement for the completion of the unit of learning.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="play-ref"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Index-Search">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Conference"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Send-Mail"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Service"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Contains a sequence of elements that declare an index and/or search service facility.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Learning-Design">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="component-ref"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#metadata-ref"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="uri"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="method-ref"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="level"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+<!--    <rdfs:subClassOf rdf:resource="http://www.eume.net/ontology/uol.owl#Organization"/> -->
+    <rdfs:subClassOf rdf:resource="#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Learning-Object">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Item"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Learning objects are incorporated either by using an included schema (e.g. IMS QTI) or by referencing resources through the item elements. IMS Simple Sequencing elements can be namespaced into the learning-object, to support the further sequencing of the item elements. When there is no sequencing information provided, all items that are specified in the learning-object will be shown to the user in the order and hierarchy provided, given that there are no further conditions defined that influences the visibility of the items or the learning-object. </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Send-Mail">
+    <rdfs:subClassOf rdf:resource="#Service"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="role-ref"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="email-data"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This service is used to send mail to users in roles (with mail address in property for level b/c).</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Conference"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Index-Search"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Participant">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specifies who the participants are in the conference. Participants can read (listen/see) the information, and can contribute to the conference. This element has an effect on setting the user rights in the conference. At least one role must be specified to identify the participants in the conference.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Role"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Moderator">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specifies who the moderators are in the conference. Moderators are persons who have the right to control and change the contributions of participants before they are made visible to other participants or observers. When a moderator is specified it means that participants may not contribute directly to the conference, but via the moderator. The moderator can reject, adapt or accept a proposed contribution of a participant. In all cases the contributor is notified of the judgment of the moderator. When there are more users in the role connected to the moderator, all have the same rights, but always the first one who did the job decides. This element has an effect on the setting of the user rights in the conference.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Role"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Execution-Entity"/>
+  <owl:Class rdf:about="#Learning-Objective">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Learning objectives describe the intended outcome for learners. Learning-objectives and prerequisites contain a standard organization of items, referring to resources or sub manifests. Resource types connected to learning objectives and prerequisites can be webcontent, imsldcontent or it can point to an IMS RDECO Schema. There are two locations where learning-objectives and prerequisites are specified: - At the level of the learning design (in the root of learning-design) - At the level of learning-activities (within learning-activities). The first ones are a more general description; the second ones are more concrete. There are two types of learning-objectives: 1 human readable descriptions (the items point to text resources) 2 machine-readable specifications. These are addressed through the href attribute of the resources pointed at. The learning-objectives schemas could be user-defined or fixed by an organization. In the latter case, the texts of the learning objectives are referred to (through href).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Item"/>
+    <owl:disjointWith rdf:resource="#Feedback-Description"/>
+    <owl:disjointWith rdf:resource="#Prerequisite"/>
+    <owl:disjointWith rdf:resource="#Activity-Description"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Information"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Role-Part">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A play consists of a series of acts and an act consists of a series of role-parts. A role-part relates exactly one role to exactly one type of activity (including the performance of another unit-of-learning and activity-structures). Role-parts within one act, are performed concurrently. When an activity or item attribute isvisible is set to 'false', the link in the activity-tree may be made visible when the role-part sets the activity for a role (implementation dependent), but the content isn't accessible.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#role-ref"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:ID="execution-entity-ref"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Learner">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >
+	In every learning design there is at least one learner-role. Learners can be 'nested', meaning that a role may be divided in sub roles. The title in the learner model is used to provide the name for the role. E.g. in an educational game you can distinguish roles like chair and participant as sub roles of student. </rdfs:comment>
+    <owl:disjointWith rdf:resource="#Staff"/>
+    <rdfs:subClassOf rdf:resource="#Role"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Learning-Activity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Activity"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Support-Activity"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Act">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A play consists of a series of acts and an act consists of a series of role-parts. An act represents a series of concurrent role-parts. There is at least one act in a play. When there is more than one act in a play, these are presented in sequence from first act to last act. Only one act in a play is the active act at any moment in time, starting with the first. When the first act is completed, the second act is made the active act. When the second act is completed, the third act is made active, etc. Acts, which are sequenced in row after the current active act, are never visible. Conditions cannot overrule this, meaning that the act is of higher priority than conditions. However, completed acts are still left visible and accessible, but the interface should sharply distinguish them from the current act, and make it clear that they are only available for reference as part of the learner's history.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="execution-order"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="role-part-ref"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Activity-Structure">
+    <rdfs:subClassOf rdf:resource="#Execution-Entity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#execution-entity-ref"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An activity-structure groups activities in sequences or selections. The tree is handled depth first (and not breadth first). </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Complete-Activity">
+    <owl:disjointWith rdf:resource="#Complete-Act"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Complete-Play"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Complete-Method"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Complete-Unit"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Conference-Manager">
+    <rdfs:subClassOf rdf:resource="#Role"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The conference manager is allowed to create new sub conferences and delete conferences he/she created. The new conferences are children of the existing base conference. The conference manager may not delete the base conference. It is deleted by system management when deleting the information of the (completed) run of the unit of learning. The conference manager has all the rights of observer, participant.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Complete-Method">
+    <owl:disjointWith rdf:resource="#Complete-Activity"/>
+    <owl:disjointWith rdf:resource="#Complete-Act"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Complete-Play"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="when-play-completed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Complete-Unit"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Complete-Play">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Complete-Unit"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="when-last-act-completed"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Complete-Act"/>
+    <owl:disjointWith rdf:resource="#Complete-Activity"/>
+    <owl:disjointWith rdf:resource="#Complete-Method"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Activity">
+    <rdfs:subClassOf rdf:resource="#Execution-Entity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#identifier"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Conference">
+    <owl:disjointWith rdf:resource="#Index-Search"/>
+    <owl:disjointWith rdf:resource="#Send-Mail"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="conference-type"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Service"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The elements participant, observer, conference-manager, moderator facilitate the setting of the user rights in the conferences. They each contain a role-ref which associates them with a role in the learning design. If more than one role is to be assigned to a conference role (e.g. several LD roles are to be participants) then several instances of the conference role are needed, one for each LD role. It depends on the implementation how a conference is set up and managed: 1. When the conference system is an integral part of the runtime system, it is expected to be set up automatically; 2. When the conference is external, the user-rights can be set manually by the conference manager. The conference manager must be able to get a list from the runtime agent about which conferences of what type, for what users, with what rights, need to be set up. 3. Using the data in this conference element, the conferences can also be set up by a generating scripts, configuration files or a legacy interface to the rights management system of the conferencing system. In all instances the runtime system must be able to provide this information in a structured way. The item element refers to the resource where the conferencing system is to be found or identified. External conferencing systems can be of any kind accessible through the internet (resource type is webcontent). Examples: netmeeting, placeware (synchronous), first-class, lotus notes, news groups (asynchronous). An announcement object sets the rights: creator of announcement = participant. Reader of announcements = observer.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Complete-Unit">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="time-limit"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Observer">
+    <rdfs:subClassOf rdf:resource="#Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Support-Activity">
+    <owl:disjointWith rdf:resource="#Learning-Activity"/>
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Information">
+    <owl:disjointWith rdf:resource="#Feedback-Description"/>
+    <owl:disjointWith rdf:resource="#Activity-Description"/>
+    <owl:disjointWith rdf:resource="#Prerequisite"/>
+    <owl:disjointWith rdf:resource="#Learning-Objective"/>
+    <rdfs:subClassOf rdf:resource="#Item"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The information element may be used to provide additional information about the activity-structure. It specifies the set of items pointing to the resource(s) where the information can be found.</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#when-role-part-completed">
+    <rdfs:domain rdf:resource="#Complete-Act"/>
+    <rdfs:range rdf:resource="#Role-Part"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This element states that an act is completed when the referenced role-part(s) is (are) completed. More than one role-part can be selected, meaning that all the referenced role-parts must be completed before the act is completed. NB: all role-part references must be in specified in the current act!</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_role-ref">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#role-ref"/>
+    </owl:inverseOf>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Send-Mail"/>
+          <owl:Class rdf:about="#Support-Activity"/>
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Role"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ObjectProperty_11">
+    <rdfs:range rdf:resource="#Learning-Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#component-ref">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Environment"/>
+          <owl:Class rdf:about="#Role"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Learning-Design"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="inverse_of_component-ref"/>
+    </owl:inverseOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specifies the building blocks used in the method section.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#email-data">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is used for send-mail purposes (as a service in the environment, or in notifications). In level B, the properties on this element refer to the property resources where the relevant e-mail data can be found for the connected role. In level A, the source is not specified explicitly and is left to implementers to decide how to address the data needed. Both properties (email, username) should be available for all persons assigned to the role and also for the sending party.</rdfs:comment>
+    <rdfs:range rdf:resource="#Role"/>
+    <rdfs:domain rdf:resource="#Send-Mail"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="unit-of-learning-href">
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Unit-of-Learning"/> -->
+    <rdfs:range rdf:resource="#Unit-of-Learning"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#inverse_of_component-ref">
+    <owl:inverseOf rdf:resource="#component-ref"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Environment"/>
+          <owl:Class rdf:about="#Role"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Learning-Design"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_moderator-ref">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="moderator-ref"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Moderator"/>
+    <rdfs:range rdf:resource="#Conference"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_play-ref">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#play-ref"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Play"/>
+    <rdfs:range rdf:resource="#Method"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#act-ref">
+    <rdfs:domain rdf:resource="#Play"/>
+    <rdfs:range rdf:resource="#Act"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="service-ref">
+    <rdfs:range rdf:resource="#Service"/>
+    <rdfs:domain rdf:resource="#Environment"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A service is a declaration of a service facility which has to be bound during instantiation of a run of a unit of learning. To automate the set up process of a service facility from a service declaration, the runtime data from the instantiated learning design would be translated into a configuration format used by the conference system if the conference is to be automatically set up. This is an implementation issue. It is also possible that a system manager could read this information and set up the required conference space manually, but the intent is to alleviate the manager of this task by enabling it to be automated. The service specification is extensible by namespacing in additional services. When instantiating a service, the runtime systems needs to maintain a handle on the 'context' to which the service is to be bound and determine the users to whom the service is being made available. A service will be referenced by an item element's identifierref attribute. The item will be within an environment. The environment in turn will be associated with an activity, or possibly directly with a role-part, associating it with a role. The activity or role-part forms the context for the use of the service. The users playing the role are those that have access to the service.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="organization">
+    <rdfs:range rdf:resource="#Learning-Design"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes one or more structures or organizations for this package. In this case, that is the learning design structure.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="on-completion-ref">
+    <rdfs:range rdf:resource="#On-Completion-Unit"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="inverse_of_on-completion-ref"/>
+    </owl:inverseOf>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Method"/>
+          <owl:Class rdf:about="#Play"/>
+          <owl:Class rdf:about="#Act"/>
+          <owl:Class rdf:about="#Activity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_prerequisite-ref">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="prerequisite-ref"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Prerequisite"/>
+<!--    <rdfs:domain rdf:resource="http://www.eume.net/ontology/uol.owl#Prerequisite-Resource"/> -->
+    <rdfs:domain rdf:resource="#Prerequisite-Resource"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="information-ref">
+    <rdfs:domain rdf:resource="#Information"/>
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Information-Resource"/> -->
+    <rdfs:range rdf:resource="#Information-Resource"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="inverse_of_information-ref"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_participant-ref">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="participant-ref"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Conference"/>
+    <rdfs:domain rdf:resource="#Participant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_environment-ref">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="environment-ref"/>
+    </owl:inverseOf>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Activity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Environment"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#participant-ref">
+    <owl:inverseOf rdf:resource="#inverse_of_participant-ref"/>
+    <rdfs:domain rdf:resource="#Conference"/>
+    <rdfs:range rdf:resource="#Participant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#inverse_of_on-completion-ref">
+    <rdfs:domain rdf:resource="#On-Completion-Unit"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Method"/>
+          <owl:Class rdf:about="#Act"/>
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Play"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="#on-completion-ref"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#moderator-ref">
+    <owl:inverseOf rdf:resource="#inverse_of_moderator-ref"/>
+    <rdfs:range rdf:resource="#Moderator"/>
+    <rdfs:domain rdf:resource="#Conference"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="unit-of-learning-ref">
+    <rdfs:domain rdf:resource="#Role-Part"/>
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Unit-of-Learning"/> -->
+    <rdfs:range rdf:resource="#Unit-of-Learning"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_activity-description-ref">
+<!--    <rdfs:domain rdf:resource="http://www.eume.net/ontology/uol.owl#Activity-Description-Resource"/> -->
+    <rdfs:domain rdf:resource="#Activity-Description-Resource"/>
+    <rdfs:range rdf:resource="#Activity-Description"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="activity-description-ref"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="observer-ref">
+    <rdfs:range rdf:resource="#Observer"/>
+    <rdfs:domain rdf:resource="#Conference"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_learning-object-ref">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="learning-object-ref"/>
+    </owl:inverseOf>
+<!--    <rdfs:domain rdf:resource="http://www.eume.net/ontology/uol.owl#Learning-Object-Resource"/> -->
+    <rdfs:domain rdf:resource="#Learning-Object-Resource"/>
+    <rdfs:range rdf:resource="#Learning-Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="support-activity-ref">
+    <rdfs:domain rdf:resource="#Role-Part"/>
+    <rdfs:range rdf:resource="#Support-Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#when-play-completed">
+    <rdfs:range rdf:resource="#Play"/>
+    <rdfs:domain rdf:resource="#Complete-Method"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This element states that an unit-of-learning is completed when the referenced play(s) is (are) completed. More than one play can be selected, meaning that all the referenced plays must be completed before the unit-of-learning is completed. When a unit-of-learning is completed this should be made aware in the runtime environment to the managers of the system.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#prerequisite-ref">
+    <owl:inverseOf rdf:resource="#inverse_of_prerequisite-ref"/>
+    <rdfs:domain rdf:resource="#Prerequisite"/>
+    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Prerequisite-Resource"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="learning-objective">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Learning-Activity"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Learning-Objective"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="activity-structure-ref">
+    <rdfs:range rdf:resource="#Activity-Structure"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="conference-manager-ref">
+    <rdfs:domain rdf:resource="#Conference"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="inverse_of_conference-manager-ref"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Conference-Manager"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="user-choice">
+    <rdfs:domain rdf:resource="#Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="learning-activity-ref">
+    <rdfs:range rdf:resource="#Learning-Activity"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#inverse_of_information-ref">
+<!--    <rdfs:domain rdf:resource="http://www.eume.net/ontology/uol.owl#Information-Resource"/> -->
+    <rdfs:domain rdf:resource="#Information-Resource"/>
+    <rdfs:range rdf:resource="#Information"/>
+    <owl:inverseOf rdf:resource="#information-ref"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#play-ref">
+    <owl:inverseOf rdf:resource="#inverse_of_play-ref"/>
+    <rdfs:domain rdf:resource="#Method"/>
+    <rdfs:range rdf:resource="#Play"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ObjectProperty_10"/>
+  <owl:ObjectProperty rdf:ID="learning-objective-ref">
+    <rdfs:domain rdf:resource="#Learning-Objective"/>
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Learning-Objective-Resource"/> -->
+    <rdfs:range rdf:resource="#Learning-Objective-Resource"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="inverse_of_learning-objective-ref"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#activity-description-ref">
+    <owl:inverseOf rdf:resource="#inverse_of_activity-description-ref"/>
+    <rdfs:domain rdf:resource="#Activity-Description"/>
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Activity-Description-Resource"/> -->
+    <rdfs:range rdf:resource="#Activity-Description-Resource"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="support-actvity-ref">
+    <rdfs:domain rdf:resource="#Activity-Structure"/>
+    <rdfs:range rdf:resource="#Support-Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="learning-object">
+    <rdfs:domain rdf:resource="#Environment"/>
+    <rdfs:range rdf:resource="#Learning-Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#inverse_of_learning-objective-ref">
+    <owl:inverseOf rdf:resource="#learning-objective-ref"/>
+<!--    <rdfs:domain rdf:resource="http://www.eume.net/ontology/uol.owl#Learning-Objective-Resource"/> -->
+    <rdfs:domain rdf:resource="#Learning-Objective-Resource"/>
+    <rdfs:range rdf:resource="#Learning-Objective"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#inverse_of_conference-manager-ref">
+    <rdfs:domain rdf:resource="#Conference-Manager"/>
+    <rdfs:range rdf:resource="#Conference"/>
+    <owl:inverseOf rdf:resource="#conference-manager-ref"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#role-ref">
+    <owl:inverseOf rdf:resource="#inverse_of_role-ref"/>
+    <rdfs:range rdf:resource="#Role"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Support-Activity"/>
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Send-Mail"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_execution-entity-ref">
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:about="#execution-entity-ref"/>
+    </owl:inverseOf>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#learning-object-ref">
+    <owl:inverseOf rdf:resource="#inverse_of_learning-object-ref"/>
+    <rdfs:domain rdf:resource="#Learning-Object"/>
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Learning-Object-Resource"/> -->
+    <rdfs:range rdf:resource="#Learning-Object-Resource"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#environment-ref">
+    <owl:inverseOf rdf:resource="#inverse_of_environment-ref"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Refers to an environment in this package. </rdfs:comment>
+    <rdfs:range rdf:resource="#Environment"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Role-Part"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="index-class">
+    <rdfs:domain rdf:resource="#Index-Search"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="search-type">
+    <rdfs:domain rdf:resource="#Index-Search"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="index-type-of-element">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Index-Search"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="identifier-ref">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Item"/>
+          <owl:Class rdf:about="#Service"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="super-learner">
+    <rdfs:domain rdf:resource="#Learner"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="class">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="index-element">
+    <rdfs:domain rdf:resource="#Index-Search"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="sub-learner">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Learner"/>
+  </owl:DatatypeProperty>
+<!--  <owl:DatatypeProperty rdf:ID="href"> -->
+  <owl:DatatypeProperty rdf:about="#href">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Resource"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="user"/>
+  <owl:DatatypeProperty rdf:ID="xmlbase">
+    <rdfs:domain rdf:resource="#Resource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="sub-staff">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Staff"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="parameters">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Service"/>
+          <owl:Class rdf:about="#Support-Activity"/>
+          <owl:Class rdf:about="#Activity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="super-staff">
+    <rdfs:domain rdf:resource="#Staff"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+<!--  <owl:DatatypeProperty rdf:ID="type"> -->
+  <owl:DatatypeProperty rdf:about="#type">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Resource"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:about="#execution-entity-ref">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#inverse_of_execution-entity-ref"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Property introduced to relate the Activity-Structures and the Role-Parts with the activities to be executed (mainly Support/Learning Activities and Activity-Structures).</rdfs:comment>
+  </owl:TransitiveProperty>
+  <owl:FunctionalProperty rdf:about="#level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Learning-Design"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >A</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >C</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >B</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specifies the lowest level of Learning Design that the document instance is valid against. The letter is specified with one of the following characters: A, B, C, a, b or c.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#execution-order">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Property introduced to simulate the order in which the  constructs appear in the XML-Schema specification.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Act"/>
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Execution-Entity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="number-to-select">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="#Activity-Structure"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >When the attribute 'number-to-select' is set, the activity-structure is completed when the number of activities completed equals the number set. The number-to-select must be the same as or smaller than the number of activities (including unit-of-learnings) which are at the immediate child level. When the number-to-select isn't set, the activity-structure is completed when all the activities in the structure are completed.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#time-limit">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The time limit specifies that it is completed when a certain amount of time has passed, relative to the start of the run of the current unit of learning. The datatype time is expressed in the 'duration' format (explained elsewhere in the information model). The time is always counted relative to the time when the run of the unit-of-learning has been started (see element: 'time-unit-of-learning-started'. Authors have to take care that the time limits set on role-parts, acts and plays are logical. In runtime the time limit of the play overrules the time limit on act and that one on the role-parts. In level B and C, the time-limit may be specified in a property (property-ref attribute, of type loc-property, datatype=string, to be declared by the author ). In that case an author may set controls (set-property) on this property for users to control the value of the property. When a property-ref is specified, content in the element is ignored: the property overrules. </rdfs:comment>
+    <rdfs:domain rdf:resource="#Complete-Unit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="version">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Learning-Design"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A version number. </rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="min-persons">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specifies the minimum number of persons bound to the role before starting a run. When the attribute min-persons and max-persons are empty, there are no restrictions. When used, the following rule applies: 0 &lt;= min-persons &lt;= max-persons</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="#Role"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="activity-description">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alias: task. The activity-description is the actual cue given to the user (rendered in the user-interface) to describe the activity to be performed by the user. In most cases the activity-description is text (of type webcontent or imsldcontent). In other cases it can be an audio-file (webcontent), a video file or any other cue to the user. Activity-descriptions also define the environment for the activity. Every noun mentioned in the description refers to a resource in the environment. It is up to the author to have a strict representation of the nouns in the environment or a more open one (leaving nouns implicit).</rdfs:comment>
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="#Activity-Description"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="max-persons">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="#Role"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specifies the maximum number of persons bound to the role before starting the run. When the attribute min-persons and max-persons are empty, there are no restrictions. When used, the following rule applies: 0 &lt;= min-persons &lt;= max-persons</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isvisible">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Play"/>
+          <owl:Class rdf:about="#Learning-Object"/>
+          <owl:Class rdf:about="#Item"/>
+          <owl:Class rdf:about="#Service"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Initial visibility attribute; possible values: true (default) or false. </rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="information">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Role"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Information"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#schemaversion">
+    <rdfs:domain rdf:resource="#Metadata"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="feedback-description-ref">
+    <rdfs:domain rdf:resource="#Feedback-Description"/>
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Feedback-Description-Resource"/> -->
+    <rdfs:range rdf:resource="#Feedback-Description-Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_feedback-description-ref"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="sort">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The attribute 'sort' determines the sort-order in relation to the visibility. Default the order in which activities are made visible is in the order specified in the activity-structure.</rdfs:comment>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >visibility-order</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >as-is</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Activity-Structure"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="create-new">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This attribute indicates whether multiple occurrences of this role may be created during runtime. When the attribute has the value "not-allowed" then there is always one and only one instance of the role. If the value is "allowed" (default), a mechanism in the runtime system should be provided to create new instances of this role. If a new instance of a role is created, new instances for all available sub-roles of that role are created as well.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Role"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+            >not-allowed</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+          >allowed</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="title">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Act"/>
+          <owl:Class rdf:about="#Role"/>
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+          <owl:Class rdf:about="#Environment"/>
+          <owl:Class rdf:about="#Play"/>
+          <owl:Class rdf:about="#Item"/>
+          <owl:Class rdf:about="#Service"/>
+          <owl:Class rdf:about="#Execution-Entity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="match-persons">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This attribute is used when there are several sub roles (e.g. chair, secretary, member). Persons can be matched exclusively to the sub roles, meaning that a person, who has the role of chair, may not be bound to one of the other roles at the same time. When it is not exclusive, persons may be bound to more than one sub role (this is the default situation).</rdfs:comment>
+    <rdfs:domain rdf:resource="#Role"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+          >exclusively-in-role</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+            >not-exclusively</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="select">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ixed choice: 'all-persons-in-role' or 'persons-in-role'. With the first choice, the user agent only allows messages to be sent to the role, indicating that all persons in the role get the message. With the second choice, the user agent allows a user to select one or more individuals within the specified role to send the message to. 
+Possible values:all-persons-in-role, persons-in-role</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+          >all-persons-in-role</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+            >persons-in-role</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Send-Mail"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="complete-unit-of-learning-ref">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A choice of elements to specify when a unit-of-learning is completed. When this element doesn't occur, the completed status is set to 'unlimited'.</rdfs:comment>
+    <rdfs:range rdf:resource="#Complete-Method"/>
+    <rdfs:domain rdf:resource="#Method"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_complete-unit-of-learning-ref"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#role-part-ref">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_role-part-ref"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Role-Part"/>
+    <rdfs:domain rdf:resource="#Act"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#ID"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Role"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Environment"/>
+          <owl:Class rdf:about="#Play"/>
+          <owl:Class rdf:about="#Act"/>
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Learning-Object"/>
+          <owl:Class rdf:about="#Item"/>
+          <owl:Class rdf:about="#Service"/>
+          <owl:Class rdf:about="#Execution-Entity"/>
+          <owl:Class rdf:about="#Resource"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="sequence-used">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Boolean, when set to 'true' IMS Simple Sequencing is included at the appropriate places in the document instance. Default is false.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Learning-Design"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#metadata-ref">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_metadata-ref"/>
+    </owl:inverseOf>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Act"/>
+          <owl:Class rdf:about="#Play"/>
+          <owl:Class rdf:about="#Role"/>
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Environment"/>
+          <owl:Class rdf:about="#Item"/>
+          <owl:Class rdf:about="#Service"/>
+          <owl:Class rdf:about="#Execution-Entity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Metadata"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#uri">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >href</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Role"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specifies a URI. </rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#schema">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Metadata"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="structure-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Activity-Structure"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >selection</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >sequence</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates whether the activity-structure represents a sequence or a selection. </rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="complete-play-ref">
+    <rdfs:range rdf:resource="#Complete-Play"/>
+    <rdfs:domain rdf:resource="#Play"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_complete-play-ref"/>
+    </owl:inverseOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A choice of elements to specify when a play is completed. When this element doesn't occur, the completed is set to 'unlimited'. </rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#conference-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Conference"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+          >synchronous</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+            >asynchronous</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#token"
+              >announcement</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="prerequisite">
+    <rdfs:range rdf:resource="#Prerequisite"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Learning-Activity"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="feedback-description">
+    <rdfs:domain rdf:resource="#On-Completion-Unit"/>
+    <rdfs:range rdf:resource="#Feedback-Description"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="complete-act-ref">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_complete-act-ref"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Act"/>
+    <rdfs:range rdf:resource="#Complete-Act"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A choice of elements to specify when an act is completed. When this element doesn't occur, the completed is set to 'unlimited'. </rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#method-ref">
+    <rdfs:domain rdf:resource="#Learning-Design"/>
+    <rdfs:range rdf:resource="#Method"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >
+	The method contains a sequence of elements for the definition of the dynamics of the learning process. It consists of one or more play(s) (which could be interpreted as the runscript for the unit of learning) and a statement for the completion of the unit of learning. </rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_method-ref"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="complete-activity-ref">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_complete-activity-ref"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="#Complete-Activity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="metadata-description-ref">
+<!--    <rdfs:range rdf:resource="http://www.eume.net/ontology/uol.owl#Metadata"/> -->
+    <rdfs:range rdf:resource="#Metadata"/>    
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Metadata"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="inverse_of_metadata-description-ref"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#when-last-act-completed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Act"/>
+    <rdfs:domain rdf:resource="#Complete-Play"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This element states that a play is completed when the last act is completed. </rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_metadata-description-ref">
+    <owl:inverseOf rdf:resource="#metadata-description-ref"/>
+    <rdfs:range rdf:resource="#Metadata"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+<!--    <rdfs:domain rdf:resource="http://www.eume.net/ontology/uol.owl#Metadata"/> -->
+    <rdfs:domain rdf:resource="#Metadata"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_role-part-ref">
+    <owl:inverseOf rdf:resource="#role-part-ref"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Role-Part"/>
+    <rdfs:range rdf:resource="#Act"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_complete-play-ref">
+    <rdfs:range rdf:resource="#Play"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#complete-play-ref"/>
+    <rdfs:domain rdf:resource="#Complete-Play"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_method-ref">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#method-ref"/>
+    <rdfs:range rdf:resource="#Learning-Design"/>
+    <rdfs:domain rdf:resource="#Method"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_complete-unit-of-learning-ref">
+    <owl:inverseOf rdf:resource="#complete-unit-of-learning-ref"/>
+    <rdfs:range rdf:resource="#Method"/>
+    <rdfs:domain rdf:resource="#Complete-Method"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_complete-act-ref">
+    <rdfs:range rdf:resource="#Act"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#complete-act-ref"/>
+    <rdfs:domain rdf:resource="#Complete-Act"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_feedback-description-ref">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Feedback-Description"/>
+<!--    <rdfs:domain rdf:resource="http://www.eume.net/ontology/uol.owl#Feedback-Description-Resource"/> -->
+    <rdfs:domain rdf:resource="#Feedback-Description-Resource"/>
+    <owl:inverseOf rdf:resource="#feedback-description-ref"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_complete-activity-ref">
+    <owl:inverseOf rdf:resource="#complete-activity-ref"/>
+    <rdfs:range rdf:resource="#Activity"/>
+    <rdfs:domain rdf:resource="#Complete-Activity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#inverse_of_metadata-ref">
+    <owl:inverseOf rdf:resource="#metadata-ref"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Environment"/>
+          <owl:Class rdf:about="#Execution-Entity"/>
+          <owl:Class rdf:about="#Learning-Design"/>
+          <owl:Class rdf:about="#Activity-Structure"/>
+          <owl:Class rdf:about="#Service"/>
+          <owl:Class rdf:about="#Role"/>
+          <owl:Class rdf:about="#Item"/>
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Play"/>
+          <owl:Class rdf:about="#Role-Part"/>
+          <owl:Class rdf:about="#Act"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Metadata"/>
+  </owl:InverseFunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

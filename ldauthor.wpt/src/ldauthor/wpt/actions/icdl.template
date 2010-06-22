@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icdl host="local.domain"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    
+	<ontology name="imsld" language="owl">
+		<owl:Ontology rdf:about="">
+			<owl:imports rdf:resource="eume_imsld.owl"/>
+		</owl:Ontology>
+	</ontology>
+	
+	<template name="default-template" language="icdl:template" />
+	
+	<urls name="default-urls" template="default-template" />
+	
+</icdl>

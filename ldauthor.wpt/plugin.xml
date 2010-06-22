@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="WPT Action Set"
+            visible="true"
+            id="ldauthor.wpt.actionSet">
+         <action
+               label="Import from HTML..."
+               class="ldauthor.wpt.actions.WPTImportAction"
+               tooltip="Import from HTML"
+               menubarPath="tools/"
+               style="push"
+               id="ldauthor.wpt.actions.WPTImportAction">
+         </action>
+         <action
+               label="Create Website Parse Template..."
+               class="ldauthor.wpt.actions.WPTCreateAction"
+               tooltip="Create Website Parse Template"
+               menubarPath="file/save.ext"
+               style="push"
+               id="ldauthor.wpt.actions.WPTCreateAction">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="ldauthor.wpt.ui.editors.WPTEditor"
+            extensions="icdl"
+            id="ldauthor.wpt.ui.editors.WPTEditor"
+            name="WPT Editor">
+      </editor>
+   </extension>
+<!--   
+   <extension
+         point="org.tencompetence.ldauthor.contenthandler">
+      <contenthandler
+            class="ldauthor.wpt.WPTContentHandler"
+            id="ldauthor.wpt.contenthandler">
+      </contenthandler>
+   </extension>
+-->   
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="">
+      </startup>
+   </extension>
+</plugin>
