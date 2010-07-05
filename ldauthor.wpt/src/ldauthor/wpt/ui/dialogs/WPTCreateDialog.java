@@ -75,7 +75,9 @@ public class WPTCreateDialog extends TitleAreaDialog {
 
         btn_browse.addSelectionListener(new SelectionListener() {
         	private void selectFile() {
-				FileDialog fd = new FileDialog(self.getShell());
+				FileDialog fd = new FileDialog(self.getShell(), SWT.SAVE);
+				fd.setFileName("default.icdl");
+				fd.setFilterExtensions(new String[] {"icdl"});
 				if (null == fd.open()) return;
 
 				self.location = fd.getFilterPath() + "/" + fd.getFileName();
