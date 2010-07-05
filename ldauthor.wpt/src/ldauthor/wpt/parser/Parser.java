@@ -107,7 +107,7 @@ public class Parser {
 						Pattern regex = Pattern.compile(icdl_url.getAttributeValue("url"));
 
 						if (regex.matcher(url).find()) {
-							extractFromHtml(individuals,
+							extractFromHtml(individuals, url,
 								html_cache.get(url), parse_template, icdl_root);
 							// continue with next template
 							break;
@@ -129,6 +129,7 @@ public class Parser {
 	private static
 	void extractFromHtml(
 		List<ElementPair> individuals,
+		String url,
 		Document html_content,
 		String parse_template,
 		Element icdl_root)
@@ -148,6 +149,10 @@ public class Parser {
 				individuals.add(new ElementPair(
 					LearningDesign.getInstance().createIndividual(concept),
 					html_el.getValue() ));
+			} else {
+				System.err.println("Extraction Report:");
+				System.err.println("XPath [" + xpath + "] not found.");
+				System.err.println("URL - " + url);
 			}
 		}
 
@@ -161,7 +166,13 @@ public class Parser {
 			String container_xpath = container.getAttributeValue("container_xpath");
 
 			Element container_el = (Element) XPath.selectSingleNode(html_content, container_xpath);
-			if (null == container_el) continue; // skip null container
+			if (null == container_el) {
+				// skip null container
+				System.err.println("Extraction Report:");
+				System.err.println("Container XPath [" + container_xpath + "] not found.");
+				System.err.println("URL - " + url);
+				continue;
+			}
 
 			Iterator<Element> block_iter = XPath.selectNodes(
 				container, "./repeatable_block").iterator();
@@ -177,6 +188,14 @@ public class Parser {
 					block_els = XPath.selectNodes(html_content, block_xpath);
 				}
 
+				if (null == block_els || 0 == block_els.size()) {
+					// skip null blocks
+					System.err.println("Extraction Report:");
+					System.err.println("Block XPath [" + block_xpath + "] not found.");
+					System.err.println("URL - " + url);
+					continue;
+				}
+
 				rule_iter = XPath.selectNodes(block, "./html_tag").iterator();
 
 				while (rule_iter.hasNext())
@@ -189,7 +208,7 @@ public class Parser {
 					{
 						Element html_el = (Element) XPath.selectSingleNode(block_el, xpath);
 						if (null == html_el) {
-							// re-try xpath by /html instead of block_el
+							// re-try xpath from html document root instead of block_el
 							html_el = (Element) XPath.selectSingleNode(html_content, xpath);
 						}
 
@@ -197,6 +216,11 @@ public class Parser {
 							individuals.add(new ElementPair(
 								LearningDesign.getInstance().createIndividual(concept),
 								html_el.getValue() ));
+						} else {
+							// unable to locate html element
+							System.err.println("Extraction Report:");
+							System.err.println("XPath [" + xpath + "] not found.");
+							System.err.println("URL - " + url);
 						}
 					}
 
