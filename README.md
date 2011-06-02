@@ -1,7 +1,7 @@
 Introduction
 ===
 
-This tiny project is a plug-in for the ReCourse Learning Design Editor found by [http://tencompetence-project.bolton.ac.uk/ldauthor/index.html](http://tencompetence-project.bolton.ac.uk/ldauthor/index.html)
+This tiny project is a plug-in for the ReCourse Learning Design Editor found by [http://tencompetence-project.bolton.ac.uk/ldauthor/index.html](http://tencompetence-project.bolton.ac.uk/ldauthor/index.html). It is a part of the work for the [conference paper](http://www.springerlink.com/content/k766jp885117q84w/).
 
 Learning Design is a formal descriptor of any teaching-learning flow. ReCourse is a particular editor for this descriptor. This plug-in uses the [Website Parse Template](http://en.wikipedia.org/wiki/Website_Parse_Template) technique to extract HTML contents from a set of web pages to create the textual elements of the Learning Design descriptor **in bulk**.
 
